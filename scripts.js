@@ -70,13 +70,13 @@ import {
 } from "https://www.gstatic.com/firebasejs/9.8.1/firebase-database.js";
 
 const firebaseConfig = {
-  apiKey: "AIzaSyBIPet2UP3BZQynX3GvjcsHa_ggbQL-jiQ",
-  authDomain: "tssc-ttdkx.firebaseapp.com",
-  databaseURL: "https://tssc-ttdkx-default-rtdb.firebaseio.com",
-  projectId: "tssc-ttdkx",
-  storageBucket: "tssc-ttdkx.appspot.com",
-  messagingSenderId: "273306688930",
-  appId: "1:273306688930:web:1bd4ddad1f5647b99626fb",
+	apiKey: "AIzaSyCHQSBfwII4CJpqcEvtK21--az6SQk6QAM",
+    authDomain: "tssc-ttdkx-43c96.firebaseapp.com",
+    databaseURL: "https://tssc-ttdkx-43c96-default-rtdb.asia-southeast1.firebasedatabase.app",
+    projectId: "tssc-ttdkx-43c96",
+    storageBucket: "tssc-ttdkx-43c96.appspot.com",
+    messagingSenderId: "121413906830",
+    appId: "1:121413906830:web:36947d40f966a526fb34df"
 };
 const app = initializeApp(firebaseConfig);
 const database = getDatabase();
