@@ -345,12 +345,8 @@ function auto_fill() {
   }
 }
 
-function report_text(){
-  console.log("abc");
-}
-
 //Hàm tự điền dữ liệu báo cáo để copy
-function report_text()_1 {
+function report_text() {
   const input_report = document.getElementById("input_report").value;
   const data_table = document.getElementById("data_table");
   const row_data_table = data_table.getElementsByTagName("tr").length;
