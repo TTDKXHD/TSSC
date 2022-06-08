@@ -30,6 +30,10 @@ document
   .getElementsByTagName("input")[0]
   .addEventListener("input", auto_fill);
 
+//Copy dữ liệu báo cáo
+document.getElementById("input_report").addEventListener("input", report_text);
+document.getElementById("copy_report").addEventListener("click", copy_text);
+
 //Bật/tắt chuông để nhận được các cảnh báo
 document.getElementById("enable_alert").addEventListener("click", function () {
   const current_volumn = document.getElementById("alert").muted;
@@ -70,13 +74,14 @@ import {
 } from "https://www.gstatic.com/firebasejs/9.8.1/firebase-database.js";
 
 const firebaseConfig = {
-	apiKey: "AIzaSyCHQSBfwII4CJpqcEvtK21--az6SQk6QAM",
-    authDomain: "tssc-ttdkx-43c96.firebaseapp.com",
-    databaseURL: "https://tssc-ttdkx-43c96-default-rtdb.asia-southeast1.firebasedatabase.app",
-    projectId: "tssc-ttdkx-43c96",
-    storageBucket: "tssc-ttdkx-43c96.appspot.com",
-    messagingSenderId: "121413906830",
-    appId: "1:121413906830:web:36947d40f966a526fb34df"
+  apiKey: "AIzaSyCHQSBfwII4CJpqcEvtK21--az6SQk6QAM",
+  authDomain: "tssc-ttdkx-43c96.firebaseapp.com",
+  databaseURL:
+    "https://tssc-ttdkx-43c96-default-rtdb.asia-southeast1.firebasedatabase.app",
+  projectId: "tssc-ttdkx-43c96",
+  storageBucket: "tssc-ttdkx-43c96.appspot.com",
+  messagingSenderId: "121413906830",
+  appId: "1:121413906830:web:36947d40f966a526fb34df",
 };
 const app = initializeApp(firebaseConfig);
 const database = getDatabase();
@@ -338,6 +343,58 @@ function auto_fill() {
       alert("Chưa có dữ liệu!");
     }
   }
+}
+
+//Hàm tự điền dữ liệu báo cáo để copy
+function report_text() {
+  const input_report = document.getElementById("input_report").value;
+  const data_table = document.getElementById("data_table");
+  const row_data_table = data_table.getElementsByTagName("tr").length;
+  const report = document.getElementById("report");
+  let text;
+  if (row_data_table > 3) {
+    for (let i = 3; i < row_data_table; i++) {
+      const data_array = [];
+      for (let j = 0; j < 14; j++) {
+        const row = data_table.getElementsByTagName("tr")[i];
+        data_array.push(row.getElementsByTagName("td")[j].innerHTML);
+      }
+      const id = Number(input_report);
+      const id_data = Number(data_array[0]);
+      if (id == id_data) {
+        if (data_array[5] == "Chạm đất nhạy"){
+          text = "B8 báo cáo: " + "lúc " + data_array[3] + ", MC " + data_array[2] + data_array[1] +
+                " nhảy bảo vệ " + data_array[5] + ", dòng chạm đất " + data_array[9] + " A" +
+                ", ĐLT lúc " + data_array[4] + ".";
+          
+        }
+        else if (data_array[5] == "Quá dòng"){
+          text = "B8 báo cáo: " + "lúc " + data_array[3] + ", MC " + data_array[2] + data_array[1] +
+                " nhảy bảo vệ " + data_array[5] + ", dòng sự cố (" + data_array[6] + " - " + data_array[7] + " - " + data_array[8] + ") (A)" +
+                ", ĐLT lúc " + data_array[4] + ".";
+        }
+        else if (data_array[5] == "Chạm đất thanh cái"){
+          text = "B8 báo cáo: " + "lúc " + data_array[3] + ", MC " + data_array[2] + data_array[1] +
+                " nhảy bảo vệ " + data_array[5] + " pha ..." + ", ĐLT lúc " + data_array[4] + ".";
+        }
+        else {
+          text = "B8 báo cáo: " + "lúc " + data_array[3] + ", MC " + data_array[2] + data_array[1] +
+                " nhảy bảo vệ ..." + ", ĐLT lúc " + data_array[4] + ".";
+        }
+        document.getElementById("report").innerHTML = text;
+      }
+    }
+  } else {
+    alert("Chưa có dữ liệu!");
+  }
+}
+
+//Hàm copy báo cáo
+function copy_text(){
+  let copyText = document.getElementById("report");
+  //copyText.select();
+  //copyText.setSelectionRange(0, 99999); //For mobile devices
+  navigator.clipboard.writeText(copyText.innerHTML);
 }
 
 //Hàm xóa tất cả các giá trị nhập
