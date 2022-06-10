@@ -440,5 +440,8 @@ function import_data_table(snapshot) {
       cell.innerHTML = data_array[j];
       row.appendChild(cell);
     }
+    if ((i % 2) == 1){
+      row.style.backgroundColor = "#ffb3b3";
+    }
   }
 }
