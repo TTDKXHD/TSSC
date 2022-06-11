@@ -369,16 +369,16 @@ function report_text() {
           
         }
         else if (data_array[5] == "Quá dòng"){
-          text = "B8 báo cáo: " + "lúc " + data_array[3] + ", MC " + data_array[2] + data_array[1] +
+          text = "B8 báo cáo: " + "Lúc " + data_array[3] + ", MC " + data_array[2] + data_array[1] +
                 " nhảy bảo vệ " + data_array[5] + ", dòng sự cố (" + data_array[6] + " - " + data_array[7] + " - " + data_array[8] + ") (A)" +
                 ", ĐLT lúc " + data_array[4] + ".";
         }
         else if (data_array[5] == "Chạm đất thanh cái"){
-          text = "B8 báo cáo: " + "lúc " + data_array[3] + ", MC " + data_array[2] + data_array[1] +
-                " nhảy bảo vệ " + data_array[5] + " pha ..." + ", ĐLT lúc " + data_array[4] + ".";
+          text = "B8 báo cáo: " + "Lúc " + data_array[3] + ", MC " + data_array[2] + data_array[1] +
+                " nhảy bảo vệ " + data_array[5] + ", ĐLT lúc " + data_array[4] + ".";
         }
         else {
-          text = "B8 báo cáo: " + "lúc " + data_array[3] + ", MC " + data_array[2] + data_array[1] +
+          text = "B8 báo cáo: " + "Lúc " + data_array[3] + ", MC " + data_array[2] + data_array[1] +
                 " nhảy bảo vệ ..." + ", ĐLT lúc " + data_array[4] + ".";
         }
         document.getElementById("report").innerHTML = text;
