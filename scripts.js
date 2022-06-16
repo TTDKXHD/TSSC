@@ -254,8 +254,8 @@ function confirm_add(my_element) {
   const id = my_element[0].value;
   const sub = my_element[12].value;
   const bay = my_element[1].value;
-  const open_time = my_element[2].value;
-  const close_time = my_element[3].value;
+  const open_time = my_element[2].value.toLowerCase();
+  const close_time = my_element[3].value.toLowerCase();
   const prot = my_element[13].value;
   const phase_a = my_element[4].value;
   const phase_b = my_element[5].value;
@@ -281,11 +281,24 @@ function confirm_add(my_element) {
     max_phase_c: max_phase_c,
     remark: remark,
   };
-  add_data_firebase(data);
-  const data_table = document.getElementById("data_table");
-  let add_row = data_table.getElementsByTagName("tr")[2];
-  add_row.style.display = "none";
-  alert("Ghi dữ liệu thành công.");
+  const open_time_length = open_time.length;
+  const letter_5th = open_time.charAt(5);
+  const letter_8th = open_time.charAt(8);
+  const letter_11st = open_time.charAt(11);
+  if (
+    open_time_length != 16 ||
+    letter_5th != "/" ||
+    letter_8th != "-" ||
+    letter_11st != "-"
+  ) {
+    alert("Vui lòng điền đúng cú pháp: 00h00/01-01-2022.");
+  } else {
+    add_data_firebase(data);
+    const data_table = document.getElementById("data_table");
+    let add_row = data_table.getElementsByTagName("tr")[2];
+    add_row.style.display = "none";
+    alert("Ghi dữ liệu thành công.");
+  }
 }
 
 //Hàm tự điền dữ liệu khi muốn chỉnh sửa dữ liệu
