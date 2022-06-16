@@ -200,12 +200,10 @@ function confirm() {
     alert("Vui lòng điền đúng và đủ dữ liệu.");
   } else if (id_edit == "" && sub_add != "Chọn TBA") {
     confirm_add(my_element);
-    refresh_listen();
-    return refresh_all(my_element);
   } else if (id_edit != "" && sub_add == "Chọn TBA") {
     confirm_edit(my_element);
     refresh_listen();
-    return refresh_all(my_element);
+    refresh_all(my_element);
   } else {
     return refresh_all(my_element);
   }
@@ -297,6 +295,8 @@ function confirm_add(my_element) {
     const data_table = document.getElementById("data_table");
     let add_row = data_table.getElementsByTagName("tr")[2];
     add_row.style.display = "none";
+    refresh_listen();
+    refresh_all(my_element);
     alert("Ghi dữ liệu thành công.");
   }
 }
