@@ -16,6 +16,18 @@ document
     data_table.getElementsByTagName("input")[0].value = id;
   });
 
+//Tự điền thời điểm khi click vào ô Thời điểm nhảy trong bảng dữ liệu
+document
+  .getElementById("data_table")
+  .getElementsByTagName("tr")[2]
+  .getElementsByTagName("input")[2]
+  .addEventListener("click", function () {
+    document
+      .getElementById("data_table")
+      .getElementsByTagName("tr")[2]
+      .getElementsByTagName("input")[2].value = get_current_time();
+  });
+
 //Hiện bảng để chỉnh sửa dữ liệu
 document
   .getElementById("edit_data_button")
@@ -457,4 +469,37 @@ function import_data_table(snapshot) {
       row.style.backgroundColor = "#e6f0ff";
     }
   }
+}
+
+//Hàm tự tạo thời điểm hiện tại
+function get_current_time() {
+  const my_date = new Date();
+  let get_date = my_date.getDate();
+  if (get_date < 10) {
+    get_date = ("0" + get_date).toString();
+  }
+  let get_month = my_date.getMonth() + 1;
+  if (get_month < 10) {
+    get_month = ("0" + get_month).toString();
+  }
+  const get_year = my_date.getFullYear().toString();
+  let get_hour = my_date.getHours();
+  if (get_hour < 10) {
+    get_hour = ("0" + get_hour).toString();
+  }
+  let get_minute = my_date.getMinutes();
+  if (get_minute < 10) {
+    get_minute = ("0" + get_minute).toString();
+  }
+  let current_time =
+    get_hour +
+    "h" +
+    get_minute +
+    "/" +
+    get_date +
+    "-" +
+    get_month +
+    "-" +
+    get_year;
+  return current_time;
 }
