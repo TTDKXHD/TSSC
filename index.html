@@ -4,11 +4,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta charset="UTF-8" />
     <title>&#128151; THÔNG SỐ SỰ CỐ - TRUNG TÂM ĐIỀU KHIỂN XA HẢI DƯƠNG</title>
-    <link
-      rel="icon"
-      type="image/x-icon"
-      href="image/favicon-32x32.png"
-    />
+    <link rel="icon" type="image/x-icon" href="image/favicon-32x32.png" />
   </head>
   <link rel="stylesheet" href="styles.css" />
   <body>
@@ -24,10 +20,7 @@
             <u><b>TRUNG TÂM ĐIỀU KHIỂN XA</b></u>
           </td>
           <td style="width: 20%; border: none">
-            <img
-              src="image/Logo.png"
-              height="80"
-            />
+            <!-- <img src="image/Logo.png" height="80" /> -->
           </td>
           <td style="width: 40%; border: none">
             <b>Cộng hòa xã hội chủ nghĩa Việt Nam</b>
@@ -49,10 +42,7 @@
     <div>
       <h1>TỔNG HỢP SỰ KIỆN KINH TẾ, CHÍNH TRỊ, XÃ HỘI VÀ THÔNG SỐ SỰ CỐ</h1>
       <audio muted style="display: none" controls id="alert">
-        <source
-          src="audio/Fault.mp3"
-          type="audio/mpeg"
-        />
+        <source src="audio/Fault.mp3" type="audio/mpeg" />
       </audio>
       <br />
     </div>
@@ -88,12 +78,25 @@
           </button>
         </div>
         <div class="side_by_side">
-          <button id="spare" class="btn_style" style="width: 30%; padding: 5px;">CHỌN SỰ KIỆN</button>
-          <input id="input_report" class="table-content" type="text" style="width: 20%;" />
-          <button id="copy_report" class="btn_style" style="width: 30%; padding: 5px;">COPY</button>
+          <button id="spare" class="btn_style" style="width: 30%; padding: 5px">
+            CHỌN SỰ KIỆN
+          </button>
+          <input
+            id="input_report"
+            class="table-content"
+            type="text"
+            style="width: 20%"
+          />
+          <button
+            id="copy_report"
+            class="btn_style"
+            style="width: 30%; padding: 5px"
+          >
+            COPY
+          </button>
           <br />
-          <a id="report" style="font-size: 20px; width: 50%;"></a>
-        </div>        
+          <a id="report" style="font-size: 20px; width: 50%"></a>
+        </div>
       </div>
     </center>
 
@@ -109,8 +112,8 @@
       <table id="edit_data_table" class="table-content" style="display: none">
         <tr>
           <th rowspan="2" style="width: 5%">STT</th>
-          <th rowspan="2" style="width: 15%">Trạm biến áp</th>
-          <th rowspan="2" style="width: 5%">Ngăn lộ</th>
+          <th rowspan="2" style="width: 10%">Trạm biến áp</th>
+          <th rowspan="2" style="width: 10%">Thiết bị</th>
           <th rowspan="2" style="width: 10%">Thời điểm nhảy</th>
           <th rowspan="2" style="width: 10%">Thời điểm đóng</th>
           <th rowspan="2" style="width: 10%">Bảo vệ tác động</th>
@@ -147,6 +150,7 @@
               <option value="E8.21 Cẩm Điền">E8.21 Cẩm Điền</option>
               <option value="E8.22 Kim Thành">E8.22 Kim Thành</option>
               <option value="E8.23 Thanh Hà">E8.23 Thanh Hà</option>
+              <option value="Recloser">Recloser</option>
             </select>
           </td>
           <td><input type="text" /></td>
@@ -188,8 +192,8 @@
       <table id="data_table" class="table-content">
         <tr>
           <th rowspan="2" style="width: 5%">STT</th>
-          <th rowspan="2" style="width: 15%">Trạm biến áp</th>
-          <th rowspan="2" style="width: 5%">Ngăn lộ</th>
+          <th rowspan="2" style="width: 10%">Trạm biến áp</th>
+          <th rowspan="2" style="width: 10%">Thiết bị</th>
           <th rowspan="2" style="width: 10%">Thời điểm nhảy</th>
           <th rowspan="2" style="width: 10%">Thời điểm đóng</th>
           <th rowspan="2" style="width: 10%">Bảo vệ tác động</th>
@@ -226,6 +230,7 @@
               <option value="E8.21 Cẩm Điền">E8.21 Cẩm Điền</option>
               <option value="E8.22 Kim Thành">E8.22 Kim Thành</option>
               <option value="E8.23 Thanh Hà">E8.23 Thanh Hà</option>
+              <option value="Recloser">Recloser</option>
             </select>
           </td>
           <td><input type="text" /></td>
